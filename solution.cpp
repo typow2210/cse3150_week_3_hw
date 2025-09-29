@@ -64,7 +64,8 @@ int main(int argc, char* argv[]) {
 			    	std::cin >> gpa;
 					if (size == capacity){
 						std::cout << "List full" << std::endl;
-				    	break;
+				    	delete(name); 
+						break;
 					}
 					else{
 			    		addStudent(name, gpa, names, gpas, size, capacity);
@@ -79,8 +80,10 @@ int main(int argc, char* argv[]) {
 			    std::cin >> index;  
 			    std::cout << "Enter new GPA: " << std::endl;
 			    std::cin >> gpa;
-			    double* gpaPtr = &gpas[index];
-			    updateGPA(gpaPtr, gpa);
+			    if(index >= 0 && index < size){
+				    double* gpaPtr = &gpas[index];
+				    updateGPA(gpaPtr, gpa);
+			    }
 			    break; 
             }
             case 3: {
@@ -110,8 +113,6 @@ int main(int argc, char* argv[]) {
         }
     } while (choice != 5);
 
-    for(int i = 0; i < size; i++){
-	    delete(names[i]); 
-    }
+    delete[] names; 
     return 0;
 }
