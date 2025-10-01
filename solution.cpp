@@ -64,7 +64,7 @@ int main(int argc, char* argv[]) {
 			    	std::cin >> gpa;
 					if (size == capacity){
 						std::cout << "List full" << std::endl;
-				    	delete(name); 
+				    	delete[] name; 
 						break;
 					}
 					else{
